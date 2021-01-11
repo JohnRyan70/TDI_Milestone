@@ -31,9 +31,6 @@ def print_symbol():
   json_var = json.loads(page.content)
 
 #---------------------------
-  date_time_str = '2018-06-29 08:15:27.243860'
-  date_time_obj = datetime.datetime.fromisoformat(date_time_str)
-  #date_time_obj
   JV_Date = [datetime.datetime.fromisoformat(date) for date in json_var['Time Series (Daily)'].keys()]
   JV_Date = JV_Date[0:22]
   JV_Close_Price = list(json_var['Time Series (Daily)'].values())
@@ -41,7 +38,7 @@ def print_symbol():
   JV_Close = JV_Close[0:22]
 
   # create a new plot with a title and axis labels
-  p = figure(title="Daily stock adjusted close price", x_axis_label='Date', y_axis_label='Adj. Close Price', x_axis_type='datetime')
+  p = figure(title="Daily Stock Adjusted Close Price", x_axis_label='Date', y_axis_label='Adj. Close Price', x_axis_type='datetime')
 
   # add a line renderer with legend and line thickness
   p.line(JV_Date, JV_Close, line_width=2)
@@ -52,4 +49,5 @@ def print_symbol():
   
 
 if __name__ == '__main__':
+  print('hello')
   app.run(port=33507)
